@@ -12,7 +12,7 @@
 
 База данных хранит информацию о заказах, платежах, статусах карт, способах оплаты.
 
-Начало работы
+## Начало работы
 1. Клонировать репозиторий
 2. Если не установлен Docker Desktop, необходимо его и установить.
 3. Запустить Docker Desktop.
@@ -47,5 +47,8 @@
 
 ## Документация
 [План автоматизации тестирования](https://github.com/SmorodaKsu/Diplomaqa/blob/main/docs/Plan.md)
+
 [Отчёт о проведённом тестировании](https://github.com/SmorodaKsu/Diplomaqa/blob/main/docs/Report.md)
+
 [Отчёт о проведённой автоматизации](https://github.com/SmorodaKsu/Diplomaqa/blob/main/docs/Summary.md)
+
