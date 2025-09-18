@@ -39,7 +39,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Покупка тура с действующей карты, создание записи в таблице payment_entity")
+    @DisplayName("Действующая карта, запись в таблице payment_entity")
     @Test
     public void shouldValidCardApprovedEntityAdded() {
         var cardInfo = DataHelper.getValidCardApproved();
@@ -51,7 +51,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Покупка тура с недействующей карты, создание записи в таблице payment_entity")
+    @DisplayName("Недействующая карта, запись в таблице payment_entity")
     @Test
     public void shouldValidCardDeclinedEntityAdded() {
         var cardInfo = DataHelper.getValidCardDeclined();
@@ -63,7 +63,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка пустого POST запроса платежа")
+    @DisplayName("Отправка пустого POST запроса для покупки")
     @Test
     public void shouldPOSTBodyEmpty() {
         var cardInfo = DataHelper.getAllEmpty();
@@ -78,7 +78,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса платежа с пустым значением number")
+    @DisplayName("Значеие number пустое для покупки POST запрос")
     @Test
     public void shouldPOSTNumberEmpty() {
         var cardInfo = DataHelper.getCardEmpty();
@@ -93,7 +93,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса платежа с пустым значением month")
+    @DisplayName("Значеие month пустое для покупки POST запрос")
     @Test
     public void shouldPOSTMonthEmpty() {
         var cardInfo = DataHelper.getMonthEmpty();
@@ -108,7 +108,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса платежа с пустым значением year")
+    @DisplayName("Значение year пустое для покупки POST запрос")
     @Test
     public void shouldPOSTYearEmpty() {
         var cardInfo = DataHelper.getYearEmpty();
@@ -123,7 +123,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса платежа с пустым значением holder")
+    @DisplayName("Значение holder пустое для покупки POST запрос")
     @Test
     public void shouldPOSTHolderEmpty() {
         var cardInfo = DataHelper.getHolderEmpty();
@@ -138,7 +138,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса платежа с пустым значением cvc")
+    @DisplayName("Значение cvc пустое для покупки POST запрос")
     @Test
     public void shouldPOSTCvcEmpty() {
         var cardInfo = DataHelper.getCvcEmpty();
@@ -153,7 +153,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Позитивный тест. Покупка тура в кредит с действующей карты, создание записи в таблице credit_request_entity")
+    @DisplayName("Покупка тура в кредит с действующей карты, создание записи в таблице credit_request_entity")
     @Test
     public void shouldValidTestCreditCardApprovedEntityAdded() {
         var cardInfo = DataHelper.getValidCardApproved();
@@ -165,7 +165,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Позитивный тест. Покупка тура в кредит с недействующей карты, создание записи в таблице credit_request_entity")
+    @DisplayName("Покупка тура в кредит с недействующей карты, создание записи в таблице credit_request_entity")
     @Test
     public void shouldValidTestCreditCardDeclinedEntityAdded() {
         var cardInfo = DataHelper.getValidCardDeclined();
@@ -177,7 +177,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка пустого POST запроса кредита")
+    @DisplayName("Отправка пустого POST запроса кредита POST запрос")
     @Test
     public void shouldCreditPOSTBodyEmpty() {
         var cardInfo = DataHelper.getAllEmpty();
@@ -192,7 +192,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса кредита с пустым значением number")
+    @DisplayName("Значение number пустое для покупки в кредит POST запрос")
     @Test
     public void shouldCreditPOSTNumberEmpty() {
         var cardInfo = DataHelper.getCardEmpty();
@@ -207,7 +207,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса кредита с пустым значением month")
+    @DisplayName("Значение month пустое для покупки в кредит POST запрос")
     @Test
     public void shouldCreditPOSTMonthEmpty() {
         var cardInfo = DataHelper.getMonthEmpty();
@@ -222,7 +222,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса кредита с пустым значением year")
+    @DisplayName("Значение year пустое для покупки в кредит POST запрос")
     @Test
     public void shouldCreditPOSTYearEmpty() {
         var cardInfo = DataHelper.getYearEmpty();
@@ -237,7 +237,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса кредита с пустым значением holder")
+    @DisplayName("Значение holder пустое для покупки в кредит POST запрос")
     @Test
     public void shouldCreditPOSTHolderEmpty() {
         var cardInfo = DataHelper.getHolderEmpty();
@@ -252,7 +252,7 @@ public class APITests {
     }
 
 
-    @DisplayName("Отправка POST запроса кредита с пустым значением cvc")
+    @DisplayName("Значение cvc пустое для покупки в кредит POST запрос")
     @Test
     public void shouldCreditPOSTCvcEmpty() {
         var cardInfo = DataHelper.getCvcEmpty();

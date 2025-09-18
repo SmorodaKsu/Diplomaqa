@@ -38,7 +38,7 @@ public class CreditTests {
 
     // Positive tests
 
-    @DisplayName("Покупка тура в кредит с действующей карты")
+    @DisplayName("Покупка в кредит с действующей карты")
     @Test
     public void shouldValidCreditCardApproved() {
         var mainPage = new MainPage();
@@ -49,7 +49,7 @@ public class CreditTests {
         assertEquals("APPROVED", credits.get(0).getStatus());
     }
 
-    @DisplayName("Покупка тура в кредит с недействующей карты")
+    @DisplayName("Покупка в кредит с недействующей карты")
     @Test
     public void shouldValidCreditCardDeclined() {
         var mainPage = new MainPage();
@@ -62,7 +62,7 @@ public class CreditTests {
 
     //Negative tests
 
-    @DisplayName("Поле Номер карты 11 цифр")
+    @DisplayName("Номер карты 11 цифр")
     @Test
     public void shouldNumberField11char() {
         var mainPage = new MainPage();
@@ -73,7 +73,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Номер карты 20 цифр")
+    @DisplayName("Номер карты 20 цифр")
     @Test
     public void shouldNumberField20char() {
         var mainPage = new MainPage();
@@ -83,7 +83,7 @@ public class CreditTests {
         creditPage.getErrorNotification();
     }
 
-    @DisplayName("Поле Номер карты 16 цифр")
+    @DisplayName("Номер карты 16 цифр")
     @Test
     public void shouldNumberField16char() {
         var mainPage = new MainPage();
@@ -94,7 +94,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Номер карты 19 цифр")
+    @DisplayName("Номер карты 19 цифр")
     @Test
     public void shouldNumberField19char() {
         var mainPage = new MainPage();
@@ -105,7 +105,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Номер карты символы")
+    @DisplayName("Номер карты символы")
     @Test
     public void shouldNumberFieldSymbols() {
         var mainPage = new MainPage();
@@ -116,7 +116,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Номер карты пустое")
+    @DisplayName("Номер карты пустое")
     @Test
     public void shouldNumberFieldEmpty() {
         var mainPage = new MainPage();
@@ -127,7 +127,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Месяц число больше 12")
+    @DisplayName("Месяц больше 12")
     @Test
     public void shouldMonthFieldMore12() {
         var mainPage = new MainPage();
@@ -138,7 +138,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Месяц число 00")
+    @DisplayName("Месяц 00")
     @Test
     public void shouldMonthFieldNull() {
         var mainPage = new MainPage();
@@ -149,7 +149,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Месяц 1 число")
+    @DisplayName("Месяц 1")
     @Test
     public void shouldMonthField1char() {
         var mainPage = new MainPage();
@@ -160,7 +160,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Месяц математические символы")
+    @DisplayName("Месяц математические символы")
     @Test
     public void shouldMonthFieldSymbols() {
         var mainPage = new MainPage();
@@ -171,7 +171,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Месяц меньше текущего")
+    @DisplayName("Месяц меньше текущего")
     @Test
     public void shouldMonthFieldLessCurrent() {
         var mainPage = new MainPage();
@@ -182,7 +182,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Месяц пустое")
+    @DisplayName("Месяц пустое поле")
     @Test
     public void shouldMonthFieldEmpty() {
         var mainPage = new MainPage();
@@ -193,7 +193,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Год меньше текущего")
+    @DisplayName("Год меньше текущего")
     @Test
     public void shouldYearFieldLessCurrent() {
         var mainPage = new MainPage();
@@ -204,7 +204,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Год число 00")
+    @DisplayName("Год число 00")
     @Test
     public void shouldYearFieldNull() {
         var mainPage = new MainPage();
@@ -215,7 +215,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Год пустое")
+    @DisplayName("Год пустое поле")
     @Test
     public void shouldYearFieldEmpty() {
         var mainPage = new MainPage();
@@ -226,7 +226,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец с пробелом в середине")
+    @DisplayName("Владелец с пробелом в середине")
     @Test
     public void shouldHolderFieldWithSpaceMiddle() {
         var mainPage = new MainPage();
@@ -237,7 +237,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец с дефисом в середине")
+    @DisplayName("Владелец с дефисом в середине")
     @Test
     public void shouldHolderFieldWithDashMiddle() {
         var mainPage = new MainPage();
@@ -248,7 +248,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец с дефисом в начале")
+    @DisplayName("Владелец с дефисом в начале")
     @Test
     public void shouldHolderFieldWithDashFirst() {
         var mainPage = new MainPage();
@@ -259,7 +259,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец с дефисом в конце")
+    @DisplayName("Владелец с дефисом в конце")
     @Test
     public void shouldHolderFieldWithDashEnd() {
         var mainPage = new MainPage();
@@ -270,7 +270,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец с пробелом в начале")
+    @DisplayName("Владелец с пробелом в начале")
     @Test
     public void shouldHolderFieldWithSpaceFirst() {
         var mainPage = new MainPage();
@@ -281,7 +281,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец с пробелом в конце")
+    @DisplayName("Владелец с пробелом в конце")
     @Test
     public void shouldHolderFieldWithSpaceEnd() {
         var mainPage = new MainPage();
@@ -292,7 +292,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец нижний регистр")
+    @DisplayName("Владелец нижний регистр")
     @Test
     public void shouldHolderFieldLowercase() {
         var mainPage = new MainPage();
@@ -303,7 +303,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец кириллицей")
+    @DisplayName("Владелец кириллицей")
     @Test
     public void shouldHolderFieldRu() {
         var mainPage = new MainPage();
@@ -314,7 +314,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец латиницей и числами")
+    @DisplayName("Владелец латиницей и числами")
     @Test
     public void shouldHolderFieldNumbers() {
         var mainPage = new MainPage();
@@ -325,7 +325,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец латиницей и спецсимволами")
+    @DisplayName("Владелец латиницей и спецсимволами")
     @Test
     public void shouldHolderFieldSymbols() {
         var mainPage = new MainPage();
@@ -336,7 +336,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле Владелец пустое")
+    @DisplayName("Владелец пустое поле")
     @Test
     public void shouldHolderFieldEmpty() {
         var mainPage = new MainPage();
@@ -347,7 +347,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле CVC/CVV 2 цифры")
+    @DisplayName("CVC/CVV 2 цифры")
     @Test
     public void shouldCVCField2char() {
         var mainPage = new MainPage();
@@ -358,7 +358,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле CVC/CVV 4 цифры")
+    @DisplayName("CVC/CVV 4 цифры")
     @Test
     public void shouldCVCField4char() {
         var mainPage = new MainPage();
@@ -369,7 +369,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле CVC/CVV символами")
+    @DisplayName("CVC/CVV символами")
     @Test
     public void shouldCVCFieldSymbols() {
         var mainPage = new MainPage();
@@ -380,7 +380,7 @@ public class CreditTests {
     }
 
 
-    @DisplayName("Поле CVC/CVV пустое")
+    @DisplayName("CVC/CVV пустое")
     @Test
     public void shouldCVCFieldEmpty() {
         var mainPage = new MainPage();
