@@ -21,16 +21,7 @@ PostgreSQL.
 
 ## Отчет
 
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/c1451cbb-b4d5-4851-9243-cc848a97dde3" />
 
-
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/f25c3fb7-534e-4ddc-af01-182f284ff635" />
-
-
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/46a3822d-ebe5-4cbb-ac0a-2b04ee926f0e" />
-
-
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/79c9cfed-62fb-4774-9f2f-878ee03a10ac" />
 
 
 
@@ -41,4 +32,5 @@ PostgreSQL.
 4. Провести ревизию полей формы, на соотвествие современным требованиям к банковским картам.
 5. Реализовать валидацию номера карты.
 6. Реализовать валидацию имени владельца карты (запретить ввод всего кроме латиницы).
+
 
