@@ -21,6 +21,16 @@ PostgreSQL.
 
 ## Отчет
 
+<img width="1486" height="593" alt="2025-09-18_15-07-40" src="https://github.com/user-attachments/assets/cacbd0e0-93da-4b01-94a8-724d201c0a7c" />
+
+
+
+<img width="1370" height="621" alt="2025-09-18_15-07-47" src="https://github.com/user-attachments/assets/467664b7-3a64-4a1d-9a08-cd1468cb8f4c" />
+
+
+<img width="1399" height="1224" alt="2025-09-18_15-07-52" src="https://github.com/user-attachments/assets/ff2fd2f0-81a2-45ce-8ed6-bca1a97a3591" />
+
+<img width="1429" height="1283" alt="2025-09-18_15-07-57" src="https://github.com/user-attachments/assets/598c8e10-e8c7-43e8-9f82-84f91ce5376d" />
 
 
 ## Общая информация
