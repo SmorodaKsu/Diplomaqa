@@ -1,10 +1,10 @@
-package ru.netology.test.UITests;
+package ru.netology.test.uitests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-import ru.netology.data.DataHelper;
 import ru.netology.data.SQLHelper;
+import ru.netology.data.DataHelper;
 import ru.netology.page.MainPage;
 
 import static com.codeborne.selenide.Condition.text;
@@ -15,7 +15,8 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.data.SQLHelper.cleanDB;
 
-public class CreditTests {
+
+public class PaymentTests {
     @BeforeAll
     public static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -38,26 +39,26 @@ public class CreditTests {
 
     // Positive tests
 
-    @DisplayName("Покупка в кредит с действующей карты")
+
+    @DisplayName("Покупка с действующей карты ")
     @Test
-    public void shouldValidCreditCardApproved() {
+    public void shouldValidCardApproved_2() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getValidCardApproved();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        var credits = SQLHelper.getCreditRequests();
-        assertEquals("APPROVED", credits.get(0).getStatus());
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        var payments = SQLHelper.getPayments();
+        assertEquals("APPROVED", payments.get(0).getStatus());
     }
-
-    @DisplayName("Покупка в кредит с недействующей карты")
+    @DisplayName("Покупка с недействующей карты")
     @Test
-    public void shouldValidCreditCardDeclined() {
+    public void shouldValidCardDeclined() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getValidCardDeclined();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        var credits = SQLHelper.getCreditRequests();
-        assertEquals("DECLINED", credits.get(0).getStatus());
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        var payments = SQLHelper.getPayments();
+        assertEquals("DECLINED", payments.get(0).getStatus());
     }
 
     //Negative tests
@@ -67,9 +68,9 @@ public class CreditTests {
     public void shouldNumberField11char() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getCard11char();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -78,9 +79,9 @@ public class CreditTests {
     public void shouldNumberField20char() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getCard20char();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getErrorNotification();
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getErrorNotification();
     }
 
     @DisplayName("Номер карты 16 цифр")
@@ -88,9 +89,9 @@ public class CreditTests {
     public void shouldNumberField16char() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getCard16char();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getErrorNotification();
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getErrorNotification();
     }
 
 
@@ -99,9 +100,9 @@ public class CreditTests {
     public void shouldNumberField19char() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getCard19char();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getErrorNotification();
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getErrorNotification();
     }
 
 
@@ -110,9 +111,9 @@ public class CreditTests {
     public void shouldNumberFieldSymbols() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getRandomCardSymbols();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -121,42 +122,42 @@ public class CreditTests {
     public void shouldNumberFieldEmpty() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getCardEmpty();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Поле обязательно для заполнения");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Поле обязательно для заполнения");
     }
 
 
-    @DisplayName("Месяц больше 12")
+    @DisplayName("Месяц число больше 12")
     @Test
     public void shouldMonthFieldMore12() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getInvalidMonthOver12();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверно указан срок действия карты");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверно указан срок действия карты");
     }
 
 
-    @DisplayName("Месяц 00")
+    @DisplayName("Месяц число 00")
     @Test
     public void shouldMonthFieldNull() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getInvalidMonthNull();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверно указан срок действия карты");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверно указан срок действия карты");
     }
 
 
-    @DisplayName("Месяц 1")
+    @DisplayName("Месяц число 1")
     @Test
     public void shouldMonthField1char() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getMonthOneChar();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getSuccessNotification();
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getSuccessNotification();
     }
 
 
@@ -165,9 +166,9 @@ public class CreditTests {
     public void shouldMonthFieldSymbols() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getInvalidMonthSymbols();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -176,20 +177,20 @@ public class CreditTests {
     public void shouldMonthFieldLessCurrent() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getInvalidMonthLessCurrent();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверно указан срок действия карты");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверно указан срок действия карты");
     }
 
 
-    @DisplayName("Месяц пустое поле")
+    @DisplayName("Месяц пустое значение")
     @Test
     public void shouldMonthFieldEmpty() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getMonthEmpty();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Поле обязательно для заполнения");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Поле обязательно для заполнения");
     }
 
 
@@ -198,9 +199,9 @@ public class CreditTests {
     public void shouldYearFieldLessCurrent() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getInvalidYearLessCurrent();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Истёк срок действия карты");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Истёк срок действия карты");
     }
 
 
@@ -209,9 +210,9 @@ public class CreditTests {
     public void shouldYearFieldNull() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getYearNull();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Истёк срок действия карты");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Истёк срок действия карты");
     }
 
 
@@ -220,9 +221,9 @@ public class CreditTests {
     public void shouldYearFieldEmpty() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getYearEmpty();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Поле обязательно для заполнения");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Поле обязательно для заполнения");
     }
 
 
@@ -231,9 +232,9 @@ public class CreditTests {
     public void shouldHolderFieldWithSpaceMiddle() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getValidHolderWithSpace();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getSuccessNotification();
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getSuccessNotification();
     }
 
 
@@ -242,9 +243,9 @@ public class CreditTests {
     public void shouldHolderFieldWithDashMiddle() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getValidHolderWithDashMiddle();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getSuccessNotification();
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getSuccessNotification();
     }
 
 
@@ -253,9 +254,9 @@ public class CreditTests {
     public void shouldHolderFieldWithDashFirst() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderWithDashFirst();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -264,9 +265,9 @@ public class CreditTests {
     public void shouldHolderFieldWithDashEnd() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderWithDashEnd();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -275,9 +276,9 @@ public class CreditTests {
     public void shouldHolderFieldWithSpaceFirst() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderWithSpaceFirst();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -286,9 +287,9 @@ public class CreditTests {
     public void shouldHolderFieldWithSpaceEnd() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderWithSpaceEnd();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -297,9 +298,9 @@ public class CreditTests {
     public void shouldHolderFieldLowercase() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderLowercase();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getSuccessNotification();
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getSuccessNotification();
     }
 
 
@@ -308,9 +309,9 @@ public class CreditTests {
     public void shouldHolderFieldRu() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderRu();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -319,9 +320,9 @@ public class CreditTests {
     public void shouldHolderFieldNumbers() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderNumbers();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -330,20 +331,20 @@ public class CreditTests {
     public void shouldHolderFieldSymbols() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderSymbols();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
-    @DisplayName("Владелец пустое поле")
+    @DisplayName("Владелец пустое")
     @Test
     public void shouldHolderFieldEmpty() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getHolderEmpty();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Поле обязательно для заполнения");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Поле обязательно для заполнения");
     }
 
 
@@ -352,9 +353,9 @@ public class CreditTests {
     public void shouldCVCField2char() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getInvalidCvc2char();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -363,9 +364,9 @@ public class CreditTests {
     public void shouldCVCField4char() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getInvalidCvc4char();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getSuccessNotification();
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getSuccessNotification();
     }
 
 
@@ -374,9 +375,9 @@ public class CreditTests {
     public void shouldCVCFieldSymbols() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getInvalidCvcSymbols();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Неверный формат");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Неверный формат");
     }
 
 
@@ -385,29 +386,18 @@ public class CreditTests {
     public void shouldCVCFieldEmpty() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getCvcEmpty();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        creditPage.getInputInvalidSub("Поле обязательно для заполнения");
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.getInputInvalidSub("Поле обязательно для заполнения");
     }
-
 
     @DisplayName("Все поля пустые")
     @Test
     public void shouldAllFieldsEmpty() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getAllEmpty();
-        var creditPage = mainPage.creditButtonClick();
-        creditPage.inputData(cardInfo);
-        $(byText("Номер карты")).parent().$(".input__sub").shouldBe(visible).
-                shouldHave(text("Поле обязательно для заполнения"));
-        $(byText("Месяц")).parent().$(".input__sub").shouldBe(visible).
-                shouldHave(text("Поле обязательно для заполнения"));
-        $(byText("Год")).parent().$(".input__sub").shouldBe(visible).
-                shouldHave(text("Поле обязательно для заполнения"));
-        $(byText("Владелец")).parent().$(".input__sub").shouldBe(visible).
-                shouldHave(text("Поле обязательно для заполнения"));
-        $(byText("CVC/CVV")).parent().$(".input__sub").shouldBe(visible).
-                shouldHave(text("Поле обязательно для заполнения"));
+        var paymentPage = mainPage.paymentButtonClick();
+        paymentPage.inputData(cardInfo);
+        paymentPage.checkAllFieldsEmptyError();
     }
-
 }

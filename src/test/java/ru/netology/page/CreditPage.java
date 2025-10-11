@@ -48,5 +48,17 @@ public class CreditPage {
     public void getInputInvalidSub(String message) {
         inputInvalidSub.shouldBe(visible).shouldHave(text(message));
     }
+    public void checkAllFieldsEmptyError() {
+        $(byText("Номер карты")).parent().$(".input__sub").shouldBe(visible)
+                .shouldHave(text("Поле обязательно для заполнения"));
+        $(byText("Месяц")).parent().$(".input__sub").shouldBe(visible)
+                .shouldHave(text("Поле обязательно для заполнения"));
+        $(byText("Год")).parent().$(".input__sub").shouldBe(visible)
+                .shouldHave(text("Поле обязательно для заполнения"));
+        $(byText("Владелец")).parent().$(".input__sub").shouldBe(visible)
+                .shouldHave(text("Поле обязательно для заполнения"));
+        $(byText("CVC/CVV")).parent().$(".input__sub").shouldBe(visible)
+                .shouldHave(text("Поле обязательно для заполнения"));
+    }
 
 }
