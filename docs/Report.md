@@ -16,21 +16,18 @@ PostgreSQL.
 43 не пройдено
 
 ## Процент успешных и не успешных тест-кейсов.
-Успешных 47,56%
-Не успешных 52,44%
+Успешных 48,78%
+Не успешных 51,22%
 
 ## Отчет
+<img width="1532" height="635" alt="2025-10-11_13-54-11" src="https://github.com/user-attachments/assets/645b9fdc-3022-4569-94ac-f2de701b75c0" />
 
-<img width="1486" height="593" alt="2025-09-18_15-07-40" src="https://github.com/user-attachments/assets/cacbd0e0-93da-4b01-94a8-724d201c0a7c" />
+<img width="1460" height="729" alt="2025-10-11_13-54-23" src="https://github.com/user-attachments/assets/5e7f5d6a-9e6d-451b-8330-6d913ca8f497" />
+
+<img width="1455" height="1275" alt="2025-10-11_13-54-29" src="https://github.com/user-attachments/assets/509c98fb-a1d7-42d5-9c54-a9cc3fccb301" />
 
 
-
-<img width="1370" height="621" alt="2025-09-18_15-07-47" src="https://github.com/user-attachments/assets/467664b7-3a64-4a1d-9a08-cd1468cb8f4c" />
-
-
-<img width="1399" height="1224" alt="2025-09-18_15-07-52" src="https://github.com/user-attachments/assets/ff2fd2f0-81a2-45ce-8ed6-bca1a97a3591" />
-
-<img width="1429" height="1283" alt="2025-09-18_15-07-57" src="https://github.com/user-attachments/assets/598c8e10-e8c7-43e8-9f82-84f91ce5376d" />
+<img width="1412" height="1269" alt="2025-10-11_13-54-34" src="https://github.com/user-attachments/assets/5a2a1fb9-c0f3-492e-bbf5-829763f79499" />
 
 
 ## Общая информация
